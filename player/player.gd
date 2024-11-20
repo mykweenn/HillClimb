@@ -29,14 +29,13 @@ func _physics_process(delta: float) -> void:
 		wheel_rear.lock_rotation = Input.is_action_pressed(&"brake")
 		wheel_front.lock_rotation = Input.is_action_pressed(&"brake")
 
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if "stone" in body.name:
+	if "StoneRigidBody" in body.name:
 		Global.Stones += 1
 	#$"../stone".in_area = true
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if "stone" in body.name:
+	if "StoneRigidBody" in body.name:
 		Global.Stones -= 1
 	#$"../stone".in_area = false

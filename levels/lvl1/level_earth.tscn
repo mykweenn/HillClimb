@@ -2,24 +2,33 @@
 
 [ext_resource type="Script" path="res://levels/lvl1/level_earth.gd" id="1_p6j3o"]
 [ext_resource type="PackedScene" uid="uid://deeltymonsmbk" path="res://player/player.tscn" id="2_py3l8"]
-[ext_resource type="PackedScene" uid="uid://diql487v4frin" path="res://Stone/stone.tscn" id="3_v1abn"]
+[ext_resource type="PackedScene" uid="uid://bd12wlbatkecl" path="res://Stone/stone_rigid_body.tscn" id="3_k0f42"]
 
 [node name="LevelEarth" type="Node2D"]
 script = ExtResource("1_p6j3o")
 
 [node name="Player" parent="." instance=ExtResource("2_py3l8")]
 
-[node name="stone" parent="." instance=ExtResource("3_v1abn")]
-position = Vector2(-102, -476)
+[node name="StoneRigidBody" parent="." node_paths=PackedStringArray("player") groups=["Player"] instance=ExtResource("3_k0f42")]
+position = Vector2(-44, -243)
+player = NodePath("../Player")
 
-[node name="stone2" parent="." instance=ExtResource("3_v1abn")]
-position = Vector2(-102, -476)
+[node name="StoneRigidBody2" parent="." node_paths=PackedStringArray("player") groups=["Player"] instance=ExtResource("3_k0f42")]
+position = Vector2(-118, -243)
+player = NodePath("../Player")
 
-[node name="stone3" parent="." instance=ExtResource("3_v1abn")]
-position = Vector2(-102, -476)
+[node name="StoneRigidBody3" parent="." node_paths=PackedStringArray("player") groups=["Player"] instance=ExtResource("3_k0f42")]
+position = Vector2(-218, -243)
+player = NodePath("../Player")
 
-[node name="stone4" parent="." instance=ExtResource("3_v1abn")]
-position = Vector2(-102, -476)
+[node name="StoneRigidBody4" parent="." node_paths=PackedStringArray("player") groups=["Player"] instance=ExtResource("3_k0f42")]
+position = Vector2(-218, -316)
+player = NodePath("../Player")
 
-[node name="stone5" parent="." instance=ExtResource("3_v1abn")]
-position = Vector2(-102, -476)
+[node name="StoneRigidBody5" parent="." node_paths=PackedStringArray("player") groups=["Player"] instance=ExtResource("3_k0f42")]
+position = Vector2(-143, -316)
+player = NodePath("../Player")
+
+[node name="StoneRigidBody6" parent="." node_paths=PackedStringArray("player") groups=["Player"] instance=ExtResource("3_k0f42")]
+position = Vector2(-61, -316)
+player = NodePath("../Player")

@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 
 Global="*res://Global.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 speed_up={
@@ -49,3 +53,4 @@ brake={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"
