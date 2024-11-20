@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu10rr5wqcyi4"]
+
+[ext_resource type="Script" path="res://stone_2.gd" id="1_hg0nm"]
+[ext_resource type="Texture2D" uid="uid://day20kvuqn7jt" path="res://resourses/sprite/Boulder.png" id="1_u45dy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vm1bc"]
+
+[node name="stone_2" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_hg0nm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_u45dy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vm1bc")

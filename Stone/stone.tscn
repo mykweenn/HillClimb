@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://diql487v4frin"]
+
+[ext_resource type="Texture2D" uid="uid://day20kvuqn7jt" path="res://resourses/sprite/Boulder.png" id="1_egsuc"]
+[ext_resource type="Script" path="res://Stone/stone.gd" id="1_vbb1g"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g4wi3"]
+bounce = 0.19
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_46ua3"]
+radius = 19.0263
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6i7lu"]
+radius = 30.1496
+
+[node name="stone" type="RigidBody2D" groups=["stone_group"]]
+collision_layer = 2
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_g4wi3")
+script = ExtResource("1_vbb1g")
+
+[node name="Boulder" type="Sprite2D" parent="."]
+scale = Vector2(2.28571, 2.28571)
+texture = ExtResource("1_egsuc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_46ua3")
+
+[node name="AreaEntered" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaEntered"]
+shape = SubResource("CircleShape2D_6i7lu")
+
+[connection signal="area_entered" from="AreaEntered" to="." method="_on_area_entered_area_entered"]
+[connection signal="area_exited" from="AreaEntered" to="." method="_on_area_entered_area_exited"]
