@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=3 uid="uid://deeltymonsmbk"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_hq7un"]
+[ext_resource type="Texture2D" uid="uid://qxsnsw03c58g" path="res://resourses/sprite/cars/TruckNorm1.png" id="2_la38o"]
+[ext_resource type="Texture2D" uid="uid://d2fy8iy3r0hjv" path="res://resourses/sprite/cars/TruckNorm1_wheel.png" id="3_unlo8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qywr1"]
+radius = 57.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njxd1"]
+size = Vector2(0.0948148, 1.6121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bmxo"]
+size = Vector2(1.56741, 0.227758)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unlwp"]
+size = Vector2(0.0888889, 1.62278)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwkd1"]
+size = Vector2(1.55407, 1.60498)
+
+[node name="Player" type="RigidBody2D" groups=["Player"]]
+script = ExtResource("1_hq7un")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-421, -182, -382, -183, -382, 28, 80, 28, 80, -182, 109, -184, 180, -161, 343, -165, 421, -18, 422, 101, 390, 123, 343, 123, 313, 82, 231, 81, 207, 113, 203, 146, 114, 148, 2, 150, -82, 150, -151, 142, -170, 99, -201, 74, -264, 80, -297, 115, -375, 120, -410, 84, -418, 58)
+
+[node name="Car-body" type="Sprite2D" parent="."]
+scale = Vector2(-1, 1)
+texture = ExtResource("2_la38o")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(517, 0)
+zoom = Vector2(0.455, 0.455)
+position_smoothing_speed = 2.0
+
+[node name="PinJointRight" type="PinJoint2D" parent="."]
+position = Vector2(276, 164)
+node_a = NodePath("..")
+node_b = NodePath("WheelRight")
+softness = 8.0
+
+[node name="WheelRight" type="RigidBody2D" parent="PinJointRight"]
+mass = 1.5
+
+[node name="Car-wheel2" type="Sprite2D" parent="PinJointRight/WheelRight"]
+texture = ExtResource("3_unlo8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PinJointRight/WheelRight"]
+shape = SubResource("CircleShape2D_qywr1")
+
+[node name="PinJointLeft" type="PinJoint2D" parent="."]
+position = Vector2(-230, 166)
+node_a = NodePath("..")
+node_b = NodePath("WheelLeft")
+softness = 8.0
+
+[node name="WheelLeft" type="RigidBody2D" parent="PinJointLeft"]
+mass = 1.5
+
+[node name="Car-wheel" type="Sprite2D" parent="PinJointLeft/WheelLeft"]
+texture = ExtResource("3_unlo8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PinJointLeft/WheelLeft"]
+shape = SubResource("CircleShape2D_qywr1")
+
+[node name="Trailer" type="Node2D" parent="."]
+position = Vector2(-230, -137)
+scale = Vector2(337.5, 140.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Trailer"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trailer/StaticBody2D"]
+position = Vector2(-0.50963, 0.489324)
+shape = SubResource("RectangleShape2D_njxd1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Trailer/StaticBody2D"]
+position = Vector2(0.226667, 1.28114)
+shape = SubResource("RectangleShape2D_6bmxo")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Trailer/StaticBody2D"]
+position = Vector2(0.965926, 0.476868)
+shape = SubResource("RectangleShape2D_unlwp")
+
+[node name="TrailerArea" type="Area2D" parent="Trailer"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trailer/TrailerArea"]
+position = Vector2(0.224444, 0.492882)
+shape = SubResource("RectangleShape2D_fwkd1")
+
+[connection signal="body_entered" from="Trailer/TrailerArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Trailer/TrailerArea" to="." method="_on_area_2d_body_exited"]

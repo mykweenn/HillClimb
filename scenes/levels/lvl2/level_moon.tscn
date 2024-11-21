@@ -1,0 +1,121 @@
+[gd_scene load_steps=6 format=3 uid="uid://28pa8nj6jyqc"]
+
+[ext_resource type="PackedScene" uid="uid://deeltymonsmbk" path="res://scenes/player/player.tscn" id="1_bu6jm"]
+[ext_resource type="Script" path="res://scenes/levels/lvl2/level_moon.gd" id="1_ioj5v"]
+[ext_resource type="PackedScene" uid="uid://bd12wlbatkecl" path="res://scenes/Stone/stone_rigid_body.tscn" id="2_du2er"]
+[ext_resource type="Script" path="res://scenes/levels/lvl2/win.gd" id="4_nhiys"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynxk4"]
+size = Vector2(366.549, 869.218)
+
+[node name="LevelMoon" type="Node2D"]
+script = ExtResource("1_ioj5v")
+
+[node name="StoneRigidBody" parent="." instance=ExtResource("2_du2er")]
+position = Vector2(-114, -1579)
+
+[node name="StoneRigidBody2" parent="." instance=ExtResource("2_du2er")]
+position = Vector2(-114, -1579)
+
+[node name="StoneRigidBody3" parent="." instance=ExtResource("2_du2er")]
+position = Vector2(-114, -1579)
+
+[node name="StoneRigidBody4" parent="." instance=ExtResource("2_du2er")]
+position = Vector2(-114, -1579)
+
+[node name="StoneRigidBody5" parent="." instance=ExtResource("2_du2er")]
+position = Vector2(-114, -1579)
+
+[node name="Player" parent="." instance=ExtResource("1_bu6jm")]
+position = Vector2(922, -454)
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(1, 782)
+points = PackedVector2Array(5, -313, 1205, -323, 2505, -978, 4652, -1946, 5408, -2490, 8321, -3145, 13898, -3084, 17903, -1971, 23941, 244, 29757, 757, 34641, 459, 41045, -4434, 45938, -9811, 49321, -15610, 51314, -19174, 56630, -20261, 63033, -16999, 67262, -10234, 70645, -2381, 72276, 3721, 78196, 6077, 83693, 5050, 94022, 2754, 101392, -1052, 107675, -4676, 112205, -7394, 119696, -7394, 131596, -6549, 134858, -5522, 139872, -2501, 141080, -1595, 145852, -2260, 150383, -9750, 151893, -15368, 151350, -20201, 147423, -23946, 141865, -26785, 137456, -27389, 130630, -26483)
+width = 1000.0
+default_color = Color(0.451569, 0.218187, 3.36915e-07, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Line2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Line2D/StaticBody2D"]
+position = Vector2(0, 76)
+polygon = PackedVector2Array(2, -878, 1092, -881, 2252, -1467, 4400, -2439, 5209, -3009, 8265, -3703, 13963, -3642, 18045, -2507, 24027, -308, 29753, 213, 34498, -70, 40743, -4850, 45563, -10128, 48985, -15971, 51033, -19648, 56731, -20807, 63350, -17436, 67712, -10523, 71201, -2428, 72696, 3295, 78268, 5530, 93823, 2268, 99894, -812, 112051, -7895, 119844, -7910, 131684, -7080, 135037, -5992, 140035, -3002, 141183, -2156, 145563, -2700, 149912, -9919, 151407, -15476, 150879, -19932, 147043, -23571, 141727, -26289, 137408, -26909, 130748, -25927, 131639, -27498, 142346, -29023, 158217, -16882, 152202, 5132, 95724, 11649, 19967, 16718, -3294, 7124)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+position = Vector2(-219, 4)
+polygon = PackedVector2Array(-708, -1570, -180, -1295, 130, -1030, 243, -864, 466, -762, 636, -891, 375, -1011, 198, -1264, -78, -1548, -516, -1683, -833, -1751, -905, -1536)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(415, -890, 247, -759, 26, -863, -97, -1029, -1120, -1523, -1042, -1747, -297, -1549, -20, -1253, 148, -1010)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="UI"]
+offset_left = 205.0
+offset_top = 7.0
+offset_right = 784.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.623529, 0.792157, 0.2, 1)
+theme_override_font_sizes/font_size = 56
+text = "Количество камней:"
+
+[node name="WIN" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_nhiys")
+
+[node name="ColorRect" type="ColorRect" parent="UI/WIN"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 158.0
+offset_right = 1114.0
+offset_bottom = 488.0
+
+[node name="Label" type="Label" parent="UI/WIN"]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 207.0
+offset_right = 854.0
+offset_bottom = 284.0
+theme_override_colors/font_color = Color(0.623529, 0.792157, 0.2, 1)
+theme_override_font_sizes/font_size = 56
+text = "Ты привез .. камней"
+
+[node name="Button" type="Button" parent="UI/WIN"]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 327.0
+offset_right = 740.0
+offset_bottom = 446.0
+theme_override_font_sizes/font_size = 61
+text = "restart"
+
+[node name="AreaFinish" type="Area2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="AreaFinish"]
+polygon = PackedVector2Array(31181, 945, 31074, 88, 31452, 50, 31523, 909)
+
+[node name="Label" type="Label" parent="AreaFinish"]
+offset_left = 31397.0
+offset_top = 163.0
+offset_right = 33089.0
+offset_bottom = 710.0
+rotation = 1.46961
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 146
+text = "ФИНИШ"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaFinish"]
+position = Vector2(31306.1, 502.531)
+rotation = -0.0883146
+shape = SubResource("RectangleShape2D_ynxk4")
+
+[connection signal="pressed" from="UI/WIN/Button" to="UI/WIN" method="_on_button_pressed"]
+[connection signal="body_entered" from="AreaFinish" to="." method="_on_area_finish_body_entered"]
