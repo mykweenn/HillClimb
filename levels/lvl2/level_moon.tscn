@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://deeltymonsmbk" path="res://player/player.tscn" id="1_bu6jm"]
 [ext_resource type="Script" path="res://levels/lvl2/level_moon.gd" id="1_ioj5v"]
-[ext_resource type="PackedScene" uid="uid://diql487v4frin" path="res://Stone/stone.tscn" id="2_7gap6"]
+[ext_resource type="PackedScene" uid="uid://bd12wlbatkecl" path="res://Stone/stone_rigid_body.tscn" id="2_du2er"]
 [ext_resource type="Script" path="res://levels/lvl2/win.gd" id="4_nhiys"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynxk4"]
@@ -11,26 +11,20 @@ size = Vector2(366.549, 869.218)
 [node name="LevelMoon" type="Node2D"]
 script = ExtResource("1_ioj5v")
 
-[node name="stone" parent="." instance=ExtResource("2_7gap6")]
-position = Vector2(-383, -1673)
+[node name="StoneRigidBody" parent="." instance=ExtResource("2_du2er")]
+position = Vector2(-114, -1579)
 
-[node name="stone2" parent="." instance=ExtResource("2_7gap6")]
-position = Vector2(-383, -1673)
+[node name="StoneRigidBody2" parent="." instance=ExtResource("2_du2er")]
+position = Vector2(-114, -1579)
 
-[node name="stone3" parent="." instance=ExtResource("2_7gap6")]
-position = Vector2(-383, -1673)
+[node name="StoneRigidBody3" parent="." instance=ExtResource("2_du2er")]
+position = Vector2(-114, -1579)
 
-[node name="stone4" parent="." instance=ExtResource("2_7gap6")]
-position = Vector2(-383, -1673)
+[node name="StoneRigidBody4" parent="." instance=ExtResource("2_du2er")]
+position = Vector2(-114, -1579)
 
-[node name="stone5" parent="." instance=ExtResource("2_7gap6")]
-position = Vector2(-383, -1673)
-
-[node name="stone6" parent="." instance=ExtResource("2_7gap6")]
-position = Vector2(-383, -1673)
-
-[node name="stone7" parent="." instance=ExtResource("2_7gap6")]
-position = Vector2(-383, -1673)
+[node name="StoneRigidBody5" parent="." instance=ExtResource("2_du2er")]
+position = Vector2(-114, -1579)
 
 [node name="Player" parent="." instance=ExtResource("1_bu6jm")]
 position = Vector2(922, -454)
@@ -121,7 +115,6 @@ text = "ФИНИШ"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaFinish"]
 position = Vector2(31306.1, 502.531)
 rotation = -0.0883146
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ynxk4")
 
 [connection signal="pressed" from="UI/WIN/Button" to="UI/WIN" method="_on_button_pressed"]
