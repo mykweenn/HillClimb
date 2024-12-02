@@ -11,12 +11,12 @@ config_version=5
 [application]
 
 config/name="HillClimb"
-run/main_scene="res://levels/lvl1/level_earth.tscn"
+run/main_scene="res://scenes/lvls/InfinityLvl.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
 [autoload]
 
-Global="*res://Global.gd"
+Global="*res://scripts/global/Global.gd"
 
 [display]
 

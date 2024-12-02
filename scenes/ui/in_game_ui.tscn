@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcec5r3u34x5"]
+
+[ext_resource type="Script" path="res://scripts/ui/in_game_ui.gd" id="1_4r35j"]
+
+[node name="InGameUI" type="CanvasLayer"]
+script = ExtResource("1_4r35j")
+
+[node name="StoneLabel" type="Label" parent="."]
+offset_left = 309.0
+offset_right = 867.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 50
+text = "Количество камней: 0"

@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://djbybp7kn3gqa"]
+
+[ext_resource type="Script" path="res://scripts/lvls/InfinityLvl.gd" id="1_3dbji"]
+[ext_resource type="PackedScene" uid="uid://deeltymonsmbk" path="res://scenes/player/player.tscn" id="2_333tv"]
+[ext_resource type="PackedScene" uid="uid://bd12wlbatkecl" path="res://scenes/stone/stone_rigid_body.tscn" id="3_861yp"]
+
+[node name="InfinityLvl" type="Node2D"]
+script = ExtResource("1_3dbji")
+
+[node name="Player" parent="." instance=ExtResource("2_333tv")]
+
+[node name="StoneRigidBody" parent="." node_paths=PackedStringArray("player") groups=["Player"] instance=ExtResource("3_861yp")]
+position = Vector2(-44, -243)
+player = NodePath("../Player")
+
+[node name="StoneRigidBody2" parent="." node_paths=PackedStringArray("player") groups=["Player"] instance=ExtResource("3_861yp")]
+position = Vector2(-118, -243)
+player = NodePath("../Player")
+
+[node name="StoneRigidBody3" parent="." node_paths=PackedStringArray("player") groups=["Player"] instance=ExtResource("3_861yp")]
+position = Vector2(-218, -243)
+player = NodePath("../Player")
+
+[node name="StoneRigidBody4" parent="." node_paths=PackedStringArray("player") groups=["Player"] instance=ExtResource("3_861yp")]
+position = Vector2(-218, -316)
+player = NodePath("../Player")
+
+[node name="StoneRigidBody5" parent="." node_paths=PackedStringArray("player") groups=["Player"] instance=ExtResource("3_861yp")]
+position = Vector2(-143, -316)
+player = NodePath("../Player")
+
+[node name="StoneRigidBody6" parent="." node_paths=PackedStringArray("player") groups=["Player"] instance=ExtResource("3_861yp")]
+position = Vector2(-61, -316)
+player = NodePath("../Player")
