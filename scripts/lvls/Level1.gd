@@ -35,9 +35,12 @@ func _process(delta: float) -> void:
 	if $UI_win.visible == false:
 		timer_playing_lvl += delta
 	$"InGameUI/StoneLabel".text = str("Количество камней: ", int(Global.Stones))
+	$"InGameUI/CoinLabel".text = str("Монет: ", int(Global.coins))
 	if Game_start == false:
 		timer_start_game += delta
 	if timer_start_game >= 10:
+		$"UI_lose/LOSE/Label".text = str("Ты не собрал камни")
+		$UI_lose.visible = true
 		print("you lose")
 	$ParallaxBackground.position.y = $Player.position.y * 0.001
 	if Global.Stones > 2:
@@ -49,7 +52,10 @@ func _process(delta: float) -> void:
 		if Game_start:
 			timer += delta
 			if timer >= 1:
-				print("you lose")
+				$"UI_lose/LOSE/Label".text = str("Ты слишком много \n потерял камней")
+				GlobalPlayer.TORQUE = 0.0
+				GlobalPlayer.turnLeftRight = 0.0
+				$UI_lose.visible = true
 
 func _on_area_finish_body_entered(body: Node2D) -> void:
 	if "layer" in body.name:

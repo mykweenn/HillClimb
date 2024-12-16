@@ -1,0 +1,280 @@
+[gd_scene load_steps=6 format=3 uid="uid://5t07obicldrt"]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_1agwv"]
+[ext_resource type="Texture2D" uid="uid://chfm6aftn8fb2" path="res://assets/sprite/background/MainMenuBack.png" id="1_1fxao"]
+[ext_resource type="Texture2D" uid="uid://bcyv8lctnmpy6" path="res://assets/sprite/background/Garage.jpg" id="3_41ix8"]
+[ext_resource type="Texture2D" uid="uid://l1ryh4uqvquf" path="res://assets/sprite/cars/Engine.png" id="4_ikwsf"]
+[ext_resource type="Texture2D" uid="uid://56jm4i4wliqv" path="res://assets/sprite/cars/Pendant.jpg" id="5_avs05"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_1agwv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1157.0
+offset_bottom = 654.0
+texture = ExtResource("1_1fxao")
+expand_mode = 1
+
+[node name="Upgrate" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Upgrate"]
+modulate = Color(0.581033, 0.581033, 0.581033, 1)
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 657.0
+texture = ExtResource("3_41ix8")
+expand_mode = 1
+
+[node name="ButtonBack" type="Button" parent="Upgrate"]
+layout_mode = 0
+offset_left = 971.0
+offset_top = 19.0
+offset_right = 1136.0
+offset_bottom = 58.0
+text = "Назад"
+
+[node name="PanelEngine" type="Panel" parent="Upgrate"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 286.0
+offset_top = 130.0
+offset_right = 508.0
+offset_bottom = 490.0
+
+[node name="ButtonUpgrateEngine" type="Button" parent="Upgrate/PanelEngine"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 287.0
+offset_right = 203.0
+offset_bottom = 352.0
+text = "улучшить"
+
+[node name="TextureRect" type="TextureRect" parent="Upgrate/PanelEngine"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 18.0
+offset_right = 206.0
+offset_bottom = 208.0
+texture = ExtResource("4_ikwsf")
+expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Upgrate/PanelEngine"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 231.0
+offset_right = 212.0
+offset_bottom = 262.0
+min_value = 1500.0
+max_value = 3000.0
+value = 1500.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Upgrate/PanelEngine"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 235.0
+offset_right = 269.0
+offset_bottom = 263.0
+scale = Vector2(0.75, 0.75)
+theme_override_font_sizes/font_size = 20
+
+[node name="PanelPendant" type="Panel" parent="Upgrate"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 594.0
+offset_top = 130.0
+offset_right = 816.0
+offset_bottom = 490.0
+
+[node name="ButtonUpgratePendant" type="Button" parent="Upgrate/PanelPendant"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 287.0
+offset_right = 209.0
+offset_bottom = 352.0
+text = "улучшить"
+
+[node name="TextureRect" type="TextureRect" parent="Upgrate/PanelPendant"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 18.0
+offset_right = 206.0
+offset_bottom = 208.0
+texture = ExtResource("5_avs05")
+expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Upgrate/PanelPendant"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 231.0
+offset_right = 212.0
+offset_bottom = 262.0
+min_value = 5000.0
+max_value = 10000.0
+value = 5000.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Upgrate/PanelPendant"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 235.0
+offset_right = 269.0
+offset_bottom = 263.0
+scale = Vector2(0.75, 0.75)
+theme_override_font_sizes/font_size = 20
+
+[node name="CoinsLabel" type="Label" parent="Upgrate"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 56.0
+offset_right = 120.0
+offset_bottom = 79.0
+text = "Монет:"
+
+[node name="Levels" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Levels"]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 649.0
+
+[node name="BoxContainer" type="BoxContainer" parent="Levels/Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 123.0
+offset_right = 1101.0
+offset_bottom = 510.0
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Button1" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "3"
+
+[node name="Button4" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "4"
+
+[node name="Button5" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "5"
+
+[node name="Button6" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "6"
+
+[node name="Button7" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "7"
+
+[node name="Button8" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "8"
+
+[node name="Button9" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "9"
+
+[node name="Button10" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "10"
+
+[node name="Button11" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "11"
+
+[node name="Button12" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "12"
+
+[node name="Button13" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "13"
+
+[node name="Button14" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "14"
+
+[node name="Button15" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "15"
+
+[node name="Button16" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "16"
+
+[node name="Button17" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "17"
+
+[node name="Button18" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "18"
+
+[node name="Button19" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "19"
+
+[node name="Button20" type="Button" parent="Levels/Panel/BoxContainer"]
+layout_mode = 2
+text = "20"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Levels/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonBack" type="Button" parent="Levels/Panel"]
+layout_mode = 0
+offset_left = 971.0
+offset_top = 19.0
+offset_right = 1136.0
+offset_bottom = 58.0
+text = "Назад"
+
+[node name="Main" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonStart" type="Button" parent="Main"]
+layout_mode = 0
+offset_left = 913.0
+offset_top = 310.0
+offset_right = 1088.0
+offset_bottom = 469.0
+text = "Играть"
+
+[node name="ButtonUpgrate" type="Button" parent="Main"]
+layout_mode = 0
+offset_left = 747.0
+offset_top = 452.0
+offset_right = 868.0
+offset_bottom = 576.0
+text = "Улучшение"
+
+[connection signal="pressed" from="Upgrate/ButtonBack" to="." method="_on_button_back_pressed"]
+[connection signal="pressed" from="Upgrate/PanelEngine/ButtonUpgrateEngine" to="." method="_on_button_upgrate_engine_pressed"]
+[connection signal="pressed" from="Upgrate/PanelPendant/ButtonUpgratePendant" to="." method="_on_button_upgrate_pendant_pressed"]
+[connection signal="pressed" from="Levels/Panel/ButtonBack" to="." method="_on_button_back_pressed"]
+[connection signal="pressed" from="Main/ButtonStart" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="Main/ButtonUpgrate" to="." method="_on_button_upgrate_pressed"]

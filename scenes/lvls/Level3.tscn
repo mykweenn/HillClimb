@@ -1,0 +1,248 @@
+[gd_scene load_steps=17 format=3 uid="uid://m57u2d40jc8g"]
+
+[ext_resource type="Script" path="res://scripts/lvls/Level1.gd" id="1_6ai5v"]
+[ext_resource type="Texture2D" uid="uid://d18xlfu6w2lkn" path="res://assets/sprite/background/Version C/layers/sky.png" id="2_quelo"]
+[ext_resource type="Texture2D" uid="uid://drydme2li67bb" path="res://assets/sprite/background/Version C/layers/far-mountains.png" id="3_jybwl"]
+[ext_resource type="Texture2D" uid="uid://22etbq4qjqdx" path="res://assets/sprite/background/Version C/layers/canyon.png" id="4_odi4x"]
+[ext_resource type="Texture2D" uid="uid://c6ug4s8g2wtnd" path="res://assets/sprite/background/Version C/layers/front.png" id="5_8yqta"]
+[ext_resource type="Texture2D" uid="uid://cxfooaao00siy" path="res://assets/sprite/background/Version C/layers/clouds.png" id="6_nuuvb"]
+[ext_resource type="PackedScene" uid="uid://deeltymonsmbk" path="res://scenes/player/player.tscn" id="7_tuyam"]
+[ext_resource type="PackedScene" uid="uid://226gbnfylqqh" path="res://scenes/coins.tscn" id="7_vixyy"]
+[ext_resource type="PackedScene" uid="uid://bd12wlbatkecl" path="res://scenes/stone/stone_rigid_body.tscn" id="8_t4vp1"]
+[ext_resource type="Texture2D" uid="uid://dyvuftmrhbpqr" path="res://assets/sprite/map/rUDA_sBROS.png" id="9_a4mx3"]
+[ext_resource type="Texture2D" uid="uid://kuf8flabknf7" path="res://assets/sprite/map/Garage.png" id="10_5unpm"]
+[ext_resource type="Texture2D" uid="uid://j4c4w6qlkw3j" path="res://assets/sprite/map/Ground.png" id="11_2mykj"]
+[ext_resource type="PackedScene" uid="uid://bqnrhvv38trp2" path="res://scenes/ui/ui.tscn" id="12_nw2u2"]
+[ext_resource type="PackedScene" uid="uid://bcec5r3u34x5" path="res://scenes/ui/in_game_ui.tscn" id="13_dfimq"]
+[ext_resource type="PackedScene" uid="uid://bh6wqfmv5dp53" path="res://scenes/ui/ui_lose.tscn" id="14_8crex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynxk4"]
+size = Vector2(218.002, 605)
+
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_6ai5v")
+
+[node name="ParallaxBackground" type="Node2D" parent="."]
+position = Vector2(560, -2383)
+
+[node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.001, 0.001)
+scroll_offset = Vector2(-75, 1)
+repeat_size = Vector2(3200, 0)
+
+[node name="Sky" type="Sprite2D" parent="ParallaxBackground/Parallax2D"]
+position = Vector2(-12.5002, -1)
+scale = Vector2(100.469, 10)
+texture = ExtResource("2_quelo")
+
+[node name="ParallaxLayer" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.01, 0.01)
+scroll_offset = Vector2(-75, 1)
+repeat_size = Vector2(3200, 0)
+
+[node name="Far-mountains" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-8.00008, 0)
+scale = Vector2(15.4712, 10)
+texture = ExtResource("3_jybwl")
+
+[node name="ParallaxLayer3" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.1, 0.01)
+scroll_offset = Vector2(-75, 1)
+repeat_size = Vector2(3200, 0)
+
+[node name="Middle-mountains" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-8.00003, 0)
+scale = Vector2(10.05, 10)
+texture = ExtResource("4_odi4x")
+
+[node name="ParallaxLayer2" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.1, 0.01)
+scroll_offset = Vector2(-75, 1)
+repeat_size = Vector2(3200, 0)
+
+[node name="Far-trees" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+scale = Vector2(10, 10)
+texture = ExtResource("4_odi4x")
+
+[node name="ParallaxLayer4" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.1, 0.01)
+scroll_offset = Vector2(-75, 1)
+repeat_size = Vector2(3200, 0)
+
+[node name="Myst" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(-7.49985, 0)
+scale = Vector2(10.0469, 10)
+texture = ExtResource("5_8yqta")
+
+[node name="ParallaxLayer5" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.5, 0.001)
+scroll_offset = Vector2(-75, 1)
+repeat_size = Vector2(3200, 0)
+
+[node name="Near-trees" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2(-9.99985, 0)
+scale = Vector2(10.0625, 10)
+texture = ExtResource("6_nuuvb")
+
+[node name="coins" type="Node2D" parent="."]
+
+[node name="Coins" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(6520, 1434)
+
+[node name="Coins2" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(6843, 1454)
+
+[node name="Coins3" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(7145, 1414)
+
+[node name="Coins4" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(14114, 405)
+
+[node name="Coins5" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(14464, 311)
+
+[node name="Coins6" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(14760, 176)
+
+[node name="Coins7" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(21030, -806)
+
+[node name="Coins8" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(21366, -671)
+
+[node name="Coins9" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(21581, -523)
+
+[node name="Coins10" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(28341, 2147)
+
+[node name="Coins11" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(28693, 2168)
+
+[node name="Coins12" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(29003, 2179)
+
+[node name="Coins13" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(38773, 5340)
+
+[node name="Coins14" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(39186, 5627)
+
+[node name="Coins15" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(39617, 5932)
+
+[node name="Coins16" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(45370, 6211)
+
+[node name="Coins17" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(45967, 6021)
+
+[node name="Coins18" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(46551, 5996)
+
+[node name="Coins19" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(52304, 8155)
+
+[node name="Coins20" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(51910, 7799)
+
+[node name="Coins21" parent="coins" instance=ExtResource("7_vixyy")]
+position = Vector2(51567, 7456)
+
+[node name="Player" parent="." instance=ExtResource("7_tuyam")]
+position = Vector2(796, -237)
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+position = Vector2(511, 0)
+zoom = Vector2(0.455, 0.455)
+limit_left = -405
+limit_top = -13000
+limit_right = 60350
+limit_bottom = 12150
+position_smoothing_speed = 2.0
+
+[node name="StoneRigidBody" parent="." instance=ExtResource("8_t4vp1")]
+position = Vector2(-481, -1361)
+
+[node name="StoneRigidBody2" parent="." instance=ExtResource("8_t4vp1")]
+position = Vector2(-481, -1361)
+
+[node name="StoneRigidBody3" parent="." instance=ExtResource("8_t4vp1")]
+position = Vector2(-481, -1361)
+
+[node name="StoneRigidBody4" parent="." instance=ExtResource("8_t4vp1")]
+position = Vector2(-481, -1361)
+
+[node name="StoneRigidBody5" parent="." instance=ExtResource("8_t4vp1")]
+position = Vector2(-481, -1361)
+
+[node name="RudaSbros" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RudaSbros"]
+position = Vector2(-29, 104)
+polygon = PackedVector2Array(483, -766, 327, -777, 42, -887, -253, -1002, -250, -1132, -671, -1533, -619, -1618, -614, -1527, -237, -1164, -174, -1115, 333, -914, 434, -861, 454, -824)
+
+[node name="RUdaSBros" type="Sprite2D" parent="RudaSbros"]
+position = Vector2(65, -965)
+scale = Vector2(1.55385, 1.55385)
+texture = ExtResource("9_a4mx3")
+
+[node name="AreaFinish" type="Area2D" parent="."]
+position = Vector2(60119, 11678)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaFinish"]
+position = Vector2(118, 154.5)
+shape = SubResource("RectangleShape2D_ynxk4")
+
+[node name="Garage" type="Sprite2D" parent="AreaFinish"]
+position = Vector2(-73, 155)
+scale = Vector2(0.946093, 0.946093)
+texture = ExtResource("10_5unpm")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(341, -436)
+points = PackedVector2Array(-635, 438, 1467, 429, 1534, 438, 1587, 458, 1689.39, 518.614, 1711, 527, 1729.49, 531.42, 1871, 524, 1896, 527, 1911, 534, 2049.69, 617.213, 2075, 630, 2098.6, 636.492, 2270.36, 663.038, 2303, 670, 2332, 680, 2460.04, 752.122, 2491, 767, 2522, 773, 2701.45, 794.7, 2738, 803, 2772, 818, 2874, 879, 2900, 893, 2925, 903, 3098.68, 926.426, 3137, 933, 3166.28, 945.456, 3274.37, 1000.8, 3311, 1016, 3347.66, 1024.32, 3480.43, 1047.64, 3527, 1060, 3564.61, 1073.73, 3724, 1148, 3751, 1159, 3782, 1172, 3993.5, 1221.82, 4025, 1230, 4059, 1238, 4277.33, 1291.72, 4305, 1301, 4325.24, 1313.55, 4449.87, 1432.14, 4476, 1445, 4504.63, 1455.04, 4761.01, 1437.47, 4797, 1449, 4825.4, 1463.75, 4932.57, 1572.2, 4965, 1592, 5001, 1606, 5279.18, 1633.18, 5316, 1642, 5347, 1659, 5499.99, 1775.56, 5538, 1797, 5578.51, 1808.83, 5794.76, 1838.48, 5837, 1850, 5872.48, 1865.32, 6075, 1974, 6110, 1992, 6139, 2000, 6438, 2049, 6489, 2053, 6536.88, 2050.49, 6946.27, 1983.5, 6989, 1982, 7020, 1983, 7552.22, 2119.3, 7601, 2125, 7644.06, 2122.55, 7937.21, 2078.92, 7986, 2079, 8028.69, 2083.07, 8358.6, 2147.37, 8408, 2154, 8460, 2151, 8809, 2122, 9086, 2059, 9381, 2054, 9630, 1994, 9900, 1996, 10177, 1923, 10545, 1921, 10840, 1845, 11192, 1821, 11766.2, 1663.12, 11839, 1637, 11912.3, 1605.53, 12337.1, 1382.1, 12385, 1364, 12432.6, 1355.17, 12826.5, 1325.93, 12869, 1318, 12911.4, 1304.26, 13314, 1172, 13699, 1008, 14058.7, 972.114, 14117, 957, 14164, 935, 14469, 781, 14514, 759, 14555.7, 744.17, 15005.1, 655.272, 15049, 643, 15108.6, 621.795, 15608, 397, 16113, 278, 16849, 208, 17635, 51, 18270, -4, 19001, -180, 19585, -236, 20102.6, -336.957, 20216, -343, 20327.8, -319.126, 20925.8, -54.2806, 21592, 232, 22426, 496, 23051, 934.621, 23185, 1003, 23315, 1037, 24322, 1408, 25376, 2000, 26655, 2483, 28001, 2789, 29707, 2789, 31217, 2996, 32667, 3451, 34251, 4187, 35243, 4795, 36633, 5334, 37880, 5788, 39091, 6587, 40460, 6972, 41937, 7691.46, 42261, 7743, 42616.5, 7726.72, 45692, 6646, 45996, 6598, 46360.5, 6581.34, 49772, 7238, 50204, 7382, 50572, 7590, 53218, 10021.1, 53414, 10193, 53649, 10314, 54301, 10521, 54476, 10676, 54650.7, 10847.7, 55371, 11710, 56699.1, 12469.8, 56878, 12520, 57070.3, 12556.4, 60010, 12575)
+width = 20.0
+default_color = Color(0.205117, 0.205117, 0.205117, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="Line2D"]
+texture_repeat = 3
+texture = ExtResource("11_2mykj")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Line2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Line2D/StaticBody2D2"]
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Garage" type="Sprite2D" parent="Walls"]
+position = Vector2(-114.188, -777)
+rotation = -3.14159
+scale = Vector2(2.32441, -2.32441)
+texture = ExtResource("10_5unpm")
+
+[node name="Garage2" type="Sprite2D" parent="Walls"]
+position = Vector2(-112.188, 706)
+rotation = 3.14159
+scale = Vector2(2.324, 2.324)
+texture = ExtResource("10_5unpm")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(-297, -896, -286, -2, -856, -84, -856, -993)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls"]
+position = Vector2(-20307, 8829)
+polygon = PackedVector2Array(80469, -3184, 80657, 3324, 80774, 3326, 80772, 3136.98, 80576, -3112)
+
+[node name="UI_win" parent="." instance=ExtResource("12_nw2u2")]
+visible = false
+
+[node name="InGameUI" parent="." instance=ExtResource("13_dfimq")]
+
+[node name="UI_lose" parent="." instance=ExtResource("14_8crex")]
+visible = false
+
+[connection signal="body_entered" from="AreaFinish" to="." method="_on_area_finish_body_entered"]
