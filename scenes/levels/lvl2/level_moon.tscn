@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://28pa8nj6jyqc"]
+[gd_scene load_steps=7 format=3 uid="uid://28pa8nj6jyqc"]
 
 [ext_resource type="PackedScene" uid="uid://deeltymonsmbk" path="res://scenes/player/player.tscn" id="1_bu6jm"]
 [ext_resource type="Script" path="res://scenes/levels/lvl2/level_moon.gd" id="1_ioj5v"]
+[ext_resource type="PackedScene" uid="uid://btmncwj2uq1fi" path="res://scenes/ui/ui.tscn" id="2_74c0y"]
 [ext_resource type="PackedScene" uid="uid://bd12wlbatkecl" path="res://scenes/Stone/stone_rigid_body.tscn" id="2_du2er"]
 [ext_resource type="Script" path="res://scenes/levels/lvl2/win.gd" id="4_nhiys"]
 
@@ -10,6 +11,10 @@ size = Vector2(366.549, 869.218)
 
 [node name="LevelMoon" type="Node2D"]
 script = ExtResource("1_ioj5v")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("2_74c0y")]
 
 [node name="StoneRigidBody" parent="." instance=ExtResource("2_du2er")]
 position = Vector2(-114, -1579)

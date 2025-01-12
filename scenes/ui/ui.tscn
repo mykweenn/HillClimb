@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://btmncwj2uq1fi"]
+[gd_scene load_steps=7 format=3 uid="uid://btmncwj2uq1fi"]
 
+[ext_resource type="Script" path="res://scenes/ui/ui.gd" id="1_ik7mr"]
 [ext_resource type="Texture2D" uid="uid://capqe1ocwg80p" path="res://resourses/UI/Vector/Red/button_rectangle_depth_border.svg" id="1_vy6q1"]
+[ext_resource type="Texture2D" uid="uid://day20kvuqn7jt" path="res://resourses/sprite/Boulder.png" id="2_kfqbr"]
 [ext_resource type="Texture2D" uid="uid://sqqdubl7n32m" path="res://resourses/UI/Preview.png" id="2_p4jo6"]
 [ext_resource type="Texture2D" uid="uid://bq66oilokv8bx" path="res://resourses/UI/Sample.png" id="3_ac2gd"]
+[ext_resource type="FontFile" uid="uid://dtijjx1vrwgh8" path="res://resourses/UI/Font/Kenney Future.ttf" id="3_gv0mg"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -11,12 +14,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ik7mr")
 
 [node name="GUI" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 2.0
+offset_bottom = -606.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -28,6 +34,7 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GUI/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 950
 
 [node name="MarginContainer" type="MarginContainer" parent="GUI/HBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -39,19 +46,32 @@ texture = ExtResource("1_vy6q1")
 
 [node name="TextureRect" type="TextureRect" parent="GUI/HBoxContainer/HBoxContainer/MarginContainer/Background"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 49.0
+offset_bottom = 39.0
+texture = ExtResource("2_kfqbr")
+stretch_mode = 3
 
-[node name="Label" type="Label" parent="GUI/HBoxContainer/HBoxContainer/MarginContainer/Background"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="NumberRocks" type="Label" parent="GUI/HBoxContainer/HBoxContainer/MarginContainer/Background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_right = -19.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_gv0mg")
+theme_override_font_sizes/font_size = 24
 text = "1"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="Preview" type="Sprite2D" parent="."]
-position = Vector2(-455, -257)
+position = Vector2(-774, -257)
 texture = ExtResource("2_p4jo6")
 
 [node name="Sample" type="Sprite2D" parent="."]
-position = Vector2(-472, 270)
+position = Vector2(-791, 270)
 texture = ExtResource("3_ac2gd")
