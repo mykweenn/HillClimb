@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://5t07obicldrt"]
+[gd_scene load_steps=7 format=3 uid="uid://5t07obicldrt"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_1agwv"]
 [ext_resource type="Texture2D" uid="uid://chfm6aftn8fb2" path="res://assets/sprite/background/MainMenuBack.png" id="1_1fxao"]
 [ext_resource type="Texture2D" uid="uid://bcyv8lctnmpy6" path="res://assets/sprite/background/Garage.jpg" id="3_41ix8"]
 [ext_resource type="Texture2D" uid="uid://l1ryh4uqvquf" path="res://assets/sprite/cars/Engine.png" id="4_ikwsf"]
 [ext_resource type="Texture2D" uid="uid://56jm4i4wliqv" path="res://assets/sprite/cars/Pendant.jpg" id="5_avs05"]
+[ext_resource type="AudioStream" uid="uid://bljc0my6265gp" path="res://assets/sounds/detail.ogg" id="5_fs1n6"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -19,7 +20,6 @@ texture = ExtResource("1_1fxao")
 expand_mode = 1
 
 [node name="Upgrate" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -84,6 +84,9 @@ offset_right = 269.0
 offset_bottom = 263.0
 scale = Vector2(0.75, 0.75)
 theme_override_font_sizes/font_size = 20
+
+[node name="ASP_upgrate" type="AudioStreamPlayer" parent="Upgrate/PanelEngine"]
+stream = ExtResource("5_fs1n6")
 
 [node name="PanelPendant" type="Panel" parent="Upgrate"]
 self_modulate = Color(0, 0, 0, 1)

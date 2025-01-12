@@ -64,6 +64,7 @@ func _on_button_upgrate_engine_pressed() -> void:
 	if Global.coins >= upgrade_cost_engine and GlobalPlayer.TORQUE <= 3000:
 		GlobalPlayer.TORQUE += 250
 		Global.coins -= upgrade_cost_engine
+		$Upgrate/PanelEngine/ASP_upgrate.play()
 		$Upgrate/PanelEngine/ProgressBar.value = GlobalPlayer.TORQUE
 		$Upgrate/PanelEngine/Label.text = str("Цена улучшения: ", upgrade_cost_engine + 5)
 		if $Upgrate/PanelEngine/ProgressBar.value == $Upgrate/PanelEngine/ProgressBar.max_value:
@@ -84,6 +85,7 @@ func _on_button_upgrate_pendant_pressed() -> void:
 	if Global.coins >= upgrade_cost_pendant and GlobalPlayer.turnLeftRight <= 10000:
 		GlobalPlayer.turnLeftRight += 1000
 		Global.coins -= upgrade_cost_pendant
+		$Upgrate/PanelEngine/ASP_upgrate.play()
 		$Upgrate/PanelPendant/ProgressBar.value = GlobalPlayer.turnLeftRight
 		$Upgrate/PanelPendant/Label.text = str("Цена улучшения: ", upgrade_cost_pendant + 5)
 		if $Upgrate/PanelPendant/ProgressBar.value == $Upgrate/PanelPendant/ProgressBar.max_value:

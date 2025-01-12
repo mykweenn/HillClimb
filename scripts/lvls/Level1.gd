@@ -8,6 +8,7 @@ var timer = 0.0
 var timer_start_game = 0.0
 var timer_playing_lvl = 0.0
 
+
 func _ready() -> void:
 	generate_polygon_and_collision()
 
@@ -32,30 +33,32 @@ func generate_polygon_and_collision():
 
 
 func _process(delta: float) -> void:
-	if $UI_win.visible == false:
-		timer_playing_lvl += delta
-	$"InGameUI/StoneLabel".text = str("Количество камней: ", int(Global.Stones))
-	$"InGameUI/CoinLabel".text = str("Монет: ", int(Global.coins))
-	if Game_start == false:
+	$"InGameUI/StoneLabel".text = str(": ", int(Global.Stones))
+	$"InGameUI/CoinLabel".text = str(": ", int(Global.coins))
+	
+	if Game_start == false and Global.Stones < 5:
 		timer_start_game += delta
-	if timer_start_game >= 10:
-		$"UI_lose/LOSE/Label".text = str("Ты не собрал камни")
-		$UI_lose.visible = true
-		print("you lose")
-	$ParallaxBackground.position.y = $Player.position.y * 0.001
-	if Global.Stones > 2:
-		if not Game_start:
-			Game_start = true
-			print("game start")
-		timer = 0
+		if timer_start_game >= 10:
+			lose("Ты не собрал камни")
 	else:
-		if Game_start:
-			timer += delta
-			if timer >= 1:
-				$"UI_lose/LOSE/Label".text = str("Ты слишком много \n потерял камней")
-				GlobalPlayer.TORQUE = 0.0
-				GlobalPlayer.turnLeftRight = 0.0
-				$UI_lose.visible = true
+		Game_start = true
+	
+	if Global.Stones <= 2 and Game_start == true:
+		timer += delta
+		if timer >= 1:
+			lose("Ты слишком много \n потерял камней")
+	else:
+		timer = 0
+	
+	$ParallaxBackground.position.y = $Player.position.y * 0.01
+
+
+func lose(reason: String):
+	$"UI_lose/LOSE/Label".text = reason
+	$UI_lose.visible = true
+	GlobalPlayer.player_died = true
+	Game_start = false
+
 
 func _on_area_finish_body_entered(body: Node2D) -> void:
 	if "layer" in body.name:

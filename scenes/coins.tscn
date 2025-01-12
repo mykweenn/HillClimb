@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://226gbnfylqqh"]
 
 [ext_resource type="Script" path="res://scripts/coins.gd" id="1_4mevx"]
-[ext_resource type="Texture2D" uid="uid://byeff2o07j1jn" path="res://assets/sprite/coins.png" id="1_r3evb"]
+[ext_resource type="Texture2D" uid="uid://be12gqoemqxm6" path="res://assets/sprite/GaechniyKlych.png" id="2_qbk4x"]
 [ext_resource type="AudioStream" uid="uid://dyklohjuh3sn0" path="res://assets/sounds/sound_coin.wav" id="3_6ha78"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5qwye"]
-radius = 66.0076
+radius = 88.0057
 
 [node name="Coins" type="Area2D"]
 script = ExtResource("1_4mevx")
@@ -15,10 +15,10 @@ shape = SubResource("CircleShape2D_5qwye")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.136719, 0.136719)
-texture = ExtResource("1_r3evb")
+texture = ExtResource("2_qbk4x")
 
 [node name="ASPup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_6ha78")
-volume_db = -66.523
+volume_db = -15.794
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

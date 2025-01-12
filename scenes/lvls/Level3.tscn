@@ -27,7 +27,7 @@ position = Vector2(560, -2383)
 
 [node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground"]
 scroll_scale = Vector2(0.001, 0.001)
-scroll_offset = Vector2(-75, 1)
+scroll_offset = Vector2(-91, 2)
 repeat_size = Vector2(3200, 0)
 
 [node name="Sky" type="Sprite2D" parent="ParallaxBackground/Parallax2D"]
@@ -37,7 +37,7 @@ texture = ExtResource("2_quelo")
 
 [node name="ParallaxLayer" type="Parallax2D" parent="ParallaxBackground"]
 scroll_scale = Vector2(0.01, 0.01)
-scroll_offset = Vector2(-75, 1)
+scroll_offset = Vector2(-91, 2)
 repeat_size = Vector2(3200, 0)
 
 [node name="Far-mountains" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
@@ -47,7 +47,7 @@ texture = ExtResource("3_jybwl")
 
 [node name="ParallaxLayer3" type="Parallax2D" parent="ParallaxBackground"]
 scroll_scale = Vector2(0.1, 0.01)
-scroll_offset = Vector2(-75, 1)
+scroll_offset = Vector2(-91, 2)
 repeat_size = Vector2(3200, 0)
 
 [node name="Middle-mountains" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
@@ -57,7 +57,7 @@ texture = ExtResource("4_odi4x")
 
 [node name="ParallaxLayer2" type="Parallax2D" parent="ParallaxBackground"]
 scroll_scale = Vector2(0.1, 0.01)
-scroll_offset = Vector2(-75, 1)
+scroll_offset = Vector2(-91, 2)
 repeat_size = Vector2(3200, 0)
 
 [node name="Far-trees" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
@@ -66,7 +66,7 @@ texture = ExtResource("4_odi4x")
 
 [node name="ParallaxLayer4" type="Parallax2D" parent="ParallaxBackground"]
 scroll_scale = Vector2(0.1, 0.01)
-scroll_offset = Vector2(-75, 1)
+scroll_offset = Vector2(-91, 2)
 repeat_size = Vector2(3200, 0)
 
 [node name="Myst" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
@@ -76,7 +76,7 @@ texture = ExtResource("5_8yqta")
 
 [node name="ParallaxLayer5" type="Parallax2D" parent="ParallaxBackground"]
 scroll_scale = Vector2(0.5, 0.001)
-scroll_offset = Vector2(-75, 1)
+scroll_offset = Vector2(-91, 2)
 repeat_size = Vector2(3200, 0)
 
 [node name="Near-trees" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]

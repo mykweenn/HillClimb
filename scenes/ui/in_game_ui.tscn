@@ -1,24 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcec5r3u34x5"]
+[gd_scene load_steps=5 format=3 uid="uid://bcec5r3u34x5"]
 
 [ext_resource type="Script" path="res://scripts/ui/in_game_ui.gd" id="1_4r35j"]
+[ext_resource type="Texture2D" uid="uid://be12gqoemqxm6" path="res://assets/sprite/GaechniyKlych.png" id="2_smrpa"]
+[ext_resource type="Texture2D" uid="uid://day20kvuqn7jt" path="res://assets/sprite/Boulder.png" id="3_7vqc2"]
+[ext_resource type="Texture2D" uid="uid://dllkuh05spqp" path="res://assets/sprite/sounds.png" id="4_vtc6i"]
 
 [node name="InGameUI" type="CanvasLayer"]
 script = ExtResource("1_4r35j")
 
 [node name="StoneLabel" type="Label" parent="."]
-offset_left = 309.0
-offset_right = 867.0
-offset_bottom = 101.0
+offset_left = 528.0
+offset_top = 24.0
+offset_right = 612.0
+offset_bottom = 125.0
 theme_override_font_sizes/font_size = 50
-text = "Количество камней: 0"
+text = ": 0"
 
 [node name="CoinLabel" type="Label" parent="."]
-offset_left = 4.0
+offset_left = 88.0
 offset_top = 6.0
-offset_right = 562.0
-offset_bottom = 107.0
+offset_right = 130.0
+offset_bottom = 75.0
 theme_override_font_sizes/font_size = 50
-text = "Монет: 0"
+text = ":0"
 
 [node name="Button" type="Button" parent="."]
 offset_left = 988.0
@@ -27,4 +31,53 @@ offset_right = 1153.0
 offset_bottom = 164.0
 text = "Рестарт"
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 79.0
+offset_bottom = 80.0
+texture = ExtResource("2_smrpa")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 440.0
+offset_top = 24.0
+offset_right = 519.0
+offset_bottom = 96.0
+texture = ExtResource("3_7vqc2")
+expand_mode = 1
+
+[node name="soundButton" type="Button" parent="."]
+offset_left = 824.0
+offset_top = 24.0
+offset_right = 959.0
+offset_bottom = 145.0
+icon = ExtResource("4_vtc6i")
+flat = true
+expand_icon = true
+
+[node name="sounds" type="Control" parent="soundButton"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -819.0
+offset_top = -18.0
+offset_right = -779.0
+offset_bottom = 22.0
+
+[node name="Panel" type="Panel" parent="soundButton/sounds"]
+visible = false
+layout_mode = 0
+offset_left = 735.0
+offset_top = 142.0
+offset_right = 1046.0
+offset_bottom = 290.0
+
+[node name="HSlider" type="HSlider" parent="soundButton/sounds/Panel"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 305.0
+offset_bottom = 146.0
+max_value = 10.0
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="soundButton" to="." method="_on_sound_button_pressed"]
+[connection signal="value_changed" from="soundButton/sounds/Panel/HSlider" to="." method="_on_h_slider_value_changed"]

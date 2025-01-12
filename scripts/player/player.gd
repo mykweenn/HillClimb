@@ -1,22 +1,28 @@
 extends RigidBody2D
 
+var player_died = false
+
 @onready var wheel_rear: RigidBody2D = $PinJointLeft/WheelLeft
 @onready var wheel_front: RigidBody2D = $PinJointRight/WheelRight
+
+@onready var ray_rear: RayCast2D = $RayCastRear
+@onready var ray_front: RayCast2D = $RayCastFront
 
 # звук
 
 @onready var motor_engine: AudioStreamPlayer = $audio/ASP_engine
+@onready var brake_sound: AudioStreamPlayer = $audio/ASP_breake
 var engine_speed := 0.0
 var engine_update_timer: float = 0.0
 var engine_update_interval: float = 1
 
 
 func _physics_process(delta: float) -> void:
+	if GlobalPlayer.player_died == false:
 		var accel = Input.get_action_strength(&"speed_up")
 		var decel = Input.get_action_strength(&"speed_down")
 		var braking = Input.is_action_pressed(&"brake")
 		# Управление ускорением
-
 		
 		wheel_rear.apply_torque_impulse(GlobalPlayer.TORQUE * accel)
 		wheel_front.apply_torque_impulse(GlobalPlayer.TORQUE * accel)
@@ -33,7 +39,16 @@ func _physics_process(delta: float) -> void:
 		wheel_front.lock_rotation = braking
 		
 		update_motor_sound(accel, decel, delta)
-		
+		update_brake_sound(braking)
+
+func update_brake_sound(braking: bool) -> void:
+	var current_speed = linear_velocity.length()
+	if braking and current_speed > 1:
+		if not brake_sound.playing:
+			brake_sound.play()
+	else:
+		brake_sound.stop()
+
 
 func update_motor_sound(accel: float, decel: float, delta: float) -> void:
 

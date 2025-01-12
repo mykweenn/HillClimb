@@ -22,6 +22,7 @@ GlobalPlayer="*res://scripts/global/GlobalPlayer.gd"
 [display]
 
 window/stretch/mode="viewport"
+window/dpi/allow_hidpi=false
 
 [input]
 
