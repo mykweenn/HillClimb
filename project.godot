@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="HillClimb"
+config/tags=PackedStringArray("tengridev")
 run/main_scene="res://scenes/ui/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
