@@ -18,7 +18,7 @@ func _ready():
 		else:
 			button.modulate = Color(1, 0, 0)
 
-	Bridge.storage.get(["passedLvl", "Stones", "coins"], Callable(self, "_on_storage_set_completed"))
+	Bridge.storage.get(["passedLvl", "coins"], Callable(self, "_on_storage_get_completed"))
 
 func _on_storage_get_completed(success, data):
 	if success:
@@ -30,17 +30,14 @@ func _on_storage_get_completed(success, data):
 
 			print("passedLvl is null")
 
-		#if data[1] != null:
-			#Global.passedLvl = int(data[1])
-			#print("Stones: ", data[1])
-		#else:
-			#Global.passedLvl = 1
 		
-		if data[2] != null:
-			Global.coins = int(data[2])
-			print("coins: ", data[2])
+		if data[1] != null:
+			Global.coins = int(data[1])
+			print("coins: ", data[1])
 		else:
-			Global.coins = 1
+			Global.coins = 0
+			print("coins is null")
+			
 
 func _on_button_pressed(button: Button) -> void:
 	var SelectLvl = button.text

@@ -5,9 +5,9 @@ var Stones = 0
 var coins = 400
 
 
-# Save data by key
 func _ready():
-	Bridge.storage.set(["passedLvl", "Stones", "coins"], [Global.passedLvl, Global.Stones, Global.coins], Callable(self, "_on_storage_set_completed"))
+	print(Global.passedLvl)
 
-func _on_storage_set_completed(success):
-	print("On Storage Set Completed, success: ", success)
+# Save data by key
+func _save_data():
+	Bridge.storage.set(["passedLvl", "coins"], [Global.passedLvl, Global.coins])

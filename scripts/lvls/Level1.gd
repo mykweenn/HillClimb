@@ -76,3 +76,4 @@ func _on_area_finish_body_entered(body: Node2D) -> void:
 		$UI_win.visible = true
 		$UI_win.stars_anim()
 		$InGameUI.visible = false
+		Global._save_data()

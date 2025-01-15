@@ -84,8 +84,8 @@
                 display: none;
             }
         </style>
-        <link id="-gd-engine-icon" rel="icon" type="image/png" href="HillClimb.icon.png" />
-<link rel="apple-touch-icon" href="HillClimb.apple-touch-icon.png"/>
+        <link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
+<link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
 
     </head>
     <body>
@@ -98,7 +98,7 @@
         </noscript>
 
         <div id="status">
-            <img id="status-splash" src="HillClimb.png" alt="">
+            <img id="status-splash" src="index.png" alt="">
             <progress id="status-progress"></progress>
             <div id="status-notice"></div>
         </div>
@@ -106,9 +106,9 @@
         <div id="banner-container"></div>
 
         <script type="text/javascript" src="./playgama-bridge.js"></script>
-        <script src="HillClimb.js"></script>
+        <script src="index.js"></script>
         <script>
-            const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"HillClimb","experimentalVK":false,"fileSizes":{"HillClimb.pck":9087920,"HillClimb.wasm":43016933},"focusCanvas":true,"gdextensionLibs":[]};
+            const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":9142336,"index.wasm":43016933},"focusCanvas":true,"gdextensionLibs":[]};
             const GODOT_THREADS_ENABLED = false;
             const engine = new Engine(GODOT_CONFIG);
 
@@ -193,22 +193,22 @@
                     let bridgeOptions = {
                         platforms: {
                             'game_distribution': {
-                                gameId: '{game_distribution_game_id}'
+                                gameId: ''
                             },
                             'telegram': {
-                                adsgramBlockId: '{adsgram_block_id}'
+                                adsgramBlockId: ''
                             },
                             'y8': {
-                                gameId: '{y8_game_id}',
-                                channelId: '{y8_channel_id}',
-                                adsenseId: '{y8_adsense_id}'
+                                gameId: '',
+                                channelId: '',
+                                adsenseId: ''
                             },
                             'lagged': {
-                                devId: '{lagged_dev_id}',
-                                publisherId: '{lagged_publisher_id}'
+                                devId: '',
+                                publisherId: ''
                             },
                             'facebook': {
-                                placementId: '{facebook_placement_id}'
+                                placementId: ''
                             }
                         }
                     }
@@ -240,6 +240,13 @@
                             },
                         })
                         .then(() => { setStatusMode('hidden'); }, displayFailureNotice);
+                    });
+                }
+            }());
+        </script>
+    </body>
+</html>
+StatusMode('hidden'); }, displayFailureNotice);
                     });
                 }
             }());
