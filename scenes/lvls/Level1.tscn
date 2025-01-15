@@ -240,7 +240,7 @@ visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_fjian")
-volume_db = -23.423
+volume_db = -23.0
 autoplay = true
 
 [connection signal="body_entered" from="AreaFinish" to="." method="_on_area_finish_body_entered"]
