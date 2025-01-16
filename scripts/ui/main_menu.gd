@@ -5,6 +5,8 @@ var upgrade_cost_pendant = 15
 
  
 func _ready():
+	Bridge.storage.get(["passedLvl", "coins"], Callable(self, "_on_storage_get_completed"))
+	Bridge.storage.get(["torque", "turnLeftRight"], Callable(self, "_on_global_player_storage_get_completed"))
 	var container = $Levels/Panel/BoxContainer
 	for button in container.get_children():
 		if button is Button:
@@ -18,7 +20,7 @@ func _ready():
 		else:
 			button.modulate = Color(1, 0, 0)
 
-	Bridge.storage.get(["passedLvl", "coins"], Callable(self, "_on_storage_get_completed"))
+	
 
 func _on_storage_get_completed(success, data):
 	if success:
@@ -37,7 +39,26 @@ func _on_storage_get_completed(success, data):
 		else:
 			Global.coins = 0
 			print("coins is null")
-			
+
+
+func _on_global_player_storage_get_completed(success, data):
+	if success:
+		if data[0] != null:
+			GlobalPlayer.TORQUE = float(data[0])
+			print("torque: ", data[0])
+		else:
+			GlobalPlayer.TORQUE = 1500.0
+
+			print("torque is 1500")
+
+		
+		if data[1] != null:
+			GlobalPlayer.turnLeftRight = float(data[1])
+			print("turnLeftRight: ", data[1])
+		else:
+			GlobalPlayer.turnLeftRight = 5500.0
+			print("turnLeftRight is 5500.0")
+
 
 func _on_button_pressed(button: Button) -> void:
 	var SelectLvl = button.text
@@ -89,7 +110,7 @@ func _on_button_upgrate_engine_pressed() -> void:
 		$Upgrate/PanelEngine/Label.text = str("Цена улучшения: ", upgrade_cost_engine + 5)
 		if $Upgrate/PanelEngine/ProgressBar.value == $Upgrate/PanelEngine/ProgressBar.max_value:
 			$Upgrate/PanelEngine/Label.text = str("Максимальный уровень")
-
+	GlobalPlayer._save_data()
 
 func _on_button_upgrate_pendant_pressed() -> void:
 	if GlobalPlayer.turnLeftRight == 5500:
@@ -110,3 +131,4 @@ func _on_button_upgrate_pendant_pressed() -> void:
 		$Upgrate/PanelPendant/Label.text = str("Цена улучшения: ", upgrade_cost_pendant + 5)
 		if $Upgrate/PanelPendant/ProgressBar.value == $Upgrate/PanelPendant/ProgressBar.max_value:
 			$Upgrate/PanelPendant/Label.text = str("Максимальный уровень")
+	GlobalPlayer._save_data()

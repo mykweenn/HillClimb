@@ -31,6 +31,7 @@ func _on_button_next_lvl_pressed() -> void:
 		print("Скоро обновление")
 	if nextLevelNumber > Global.passedLvl:
 		Global.passedLvl += 1
+		Global._save_data()
 
 func _on_button_go_to_menu_pressed() -> void:
 	var currentScene = get_tree().current_scene.name
