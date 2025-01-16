@@ -12,6 +12,11 @@ func _ready():
 		if button is Button:
 			button.connect("pressed", Callable(self, "_on_button_pressed").bind(button))
 
+
+
+func _process(delta):
+	$Upgrate/CoinsLabel.text = str("Монет: ", int(Global.coins))
+	
 	var buttons = $Levels/Panel/BoxContainer.get_children()
 	for button in buttons:
 		var level_to_check = int(button.get_text())
@@ -85,8 +90,6 @@ func _on_button_back_pressed() -> void:
 	$Main.visible = true
 
 
-func _process(delta: float) -> void:
-	$Upgrate/CoinsLabel.text = str("Монет: ", int(Global.coins))
 
 
 func _on_button_upgrate_engine_pressed() -> void:
@@ -110,6 +113,7 @@ func _on_button_upgrate_engine_pressed() -> void:
 		$Upgrate/PanelEngine/Label.text = str("Цена улучшения: ", upgrade_cost_engine + 5)
 		if $Upgrate/PanelEngine/ProgressBar.value == $Upgrate/PanelEngine/ProgressBar.max_value:
 			$Upgrate/PanelEngine/Label.text = str("Максимальный уровень")
+	Global._save_data()
 	GlobalPlayer._save_data()
 
 func _on_button_upgrate_pendant_pressed() -> void:
@@ -132,3 +136,4 @@ func _on_button_upgrate_pendant_pressed() -> void:
 		if $Upgrate/PanelPendant/ProgressBar.value == $Upgrate/PanelPendant/ProgressBar.max_value:
 			$Upgrate/PanelPendant/Label.text = str("Максимальный уровень")
 	GlobalPlayer._save_data()
+	Global._save_data()

@@ -2,8 +2,8 @@ extends Control
 
 
 func _on_button_restart_pressed() -> void:
-	get_tree().reload_current_scene()
 	GlobalPlayer.player_died = false
+	get_tree().reload_current_scene()
 
 
 func _on_button_go_to_menu_pressed() -> void:

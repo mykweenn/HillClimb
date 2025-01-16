@@ -11,6 +11,7 @@ var timer_playing_lvl = 0.0
 
 func _ready() -> void:
 	generate_polygon_and_collision()
+	GlobalPlayer.player_died = false
 
 	Bridge.game.connect("visibility_state_changed", Callable(self, "_on_visibility_state_changed"))
 
